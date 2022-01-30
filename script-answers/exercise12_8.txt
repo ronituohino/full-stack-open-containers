@@ -1,0 +1,183 @@
+Script started on 2022-01-30 16:54:57+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="171" LINES="37"]
+]0;roni@roni: ~/Documents/full-stack-open-containers[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers[00m$ sudo docker container ls -a
+[sudo] password for roni: *************             
+CONTAINER ID   IMAGE          COMMAND                  CREATED             STATUS                     PORTS                                         NAMES
+e5e42e39ad08   nginx          "/docker-entrypoint.…"   12 minutes ago      Exited (0) 6 minutes ago                                                 elated_leavitt
+3709d08e63b5   mongo          "docker-entrypoint.s…"   About an hour ago   Up 6 minutes               0.0.0.0:3456->27017/tcp, :::3456->27017/tcp   todo-backend_mongo_1
+e42f34192510   todo-backend   "docker-entrypoint.s…"   2 hours ago         Exited (137) 2 hours ago                                                 todo-backend_app_1
+]0;roni@roni: ~/Documents/full-stack-open-containers[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers[00m$ sudo docker exec 37 -it bash
+OCI runtime exec failed: exec failed: container_linux.go:380: starting container process caused: exec: "-it": executable file not found in $PATH: unknown
+]0;roni@roni: ~/Documents/full-stack-open-containers[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers[00m$ sudo docker exec 37 -it bash[C[1P bash[1P bash[1P bash[1Pbash[1@-[1@i[1@t[1@ 
+]0;root@3709d08e63b5: /root@3709d08e63b5:/# mongo
+MongoDB shell version v5.0.5
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("bc2882c5-425e-4349-9146-b1311eb1d7b8") }
+MongoDB server version: 5.0.5
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+> -u to[3G[J-u t[7G[3G[J-u [6Groot _[3G[J-u root [11G-p example[3G[J-u root -p example[21G
+uncaught exception: SyntaxError: unexpected token: identifier :
+@(shell):1:3
+> shod[3G[Jsho[6Gw s[3G[Jshow [8Gdbs[3G[Jshow dbs[11G
+> help[3G[Jhelp[7G
+	db.help()                    help on db methods
+	db.mycoll.help()             help on collection methods
+	sh.help()                    sharding helpers
+	rs.help()                    replica set helpers
+	help admin                   administrative help
+	help connect                 connecting to a db help
+	help keys                    key shortcuts
+	help misc                    misc things to know
+	help mr                      mapreduce
+
+	show dbs                     show database names
+	show collections             show collections in current database
+	show users                   show users in current database
+	show profile                 show most recent system.profile entries with time >= 1ms
+	show logs                    show the accessible logger names
+	show log [name]              prints out the last segment of log in memory, 'global' is default
+	use <db_name>                set current database
+	db.mycoll.find()             list objects in collection mycoll
+	db.mycoll.find( { a : 1 } )  list objects in mycoll where a == 1
+	it                           result of the last line evaluated; use to further iterate
+	DBQuery.shellBatchSize = x   set default number of items to display on shell
+	exit                         quit the mongo shell
+> show users[3G[Jshow users[13G
+uncaught exception: Error: command usersInfo requires authentication :
+_getErrorWithCode@src/mongo/shell/utils.js:25:13
+DB.prototype.getUsers@src/mongo/shell/db.js:1635:15
+shellHelper.show@src/mongo/shell/utils.js:933:9
+shellHelper@src/mongo/shell/utils.js:838:15
+@(shellhelp2):1:1
+> [3G[J[3G^C
+bye
+]0;root@3709d08e63b5: /root@3709d08e63b5:/# mongo -u root -p example
+MongoDB shell version v5.0.5
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("689f6206-b8e7-4f4f-b508-f613719316c4") }
+MongoDB server version: 5.0.5
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting: 
+        2022-01-30T14:48:34.341+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show s[3G[Jshow [8Gdbs[3G[Jshow dbs[11G
+admin         0.000GB
+config        0.000GB
+local         0.000GB
+the_database  0.000GB
+> use the_database[3G[Juse the_database[19G
+switched to db the_database
+> show collections[3G[Jshow collections[19G
+todos
+> db.todos.find()[3G[Jdb.todos.find[1;34m([0m)[17G[3G[Jdb.todos.find([1;34m{[0m)[18G[3G[Jdb.todos.find[1;34m([0m{})[19G[3G[Jdb.todos.find({})[20G[3G[Jdb.todos.find({})[20G
+{ "_id" : ObjectId("61f691e916609040d7521655"), "text" : "New note", "done" : false }
+{ "_id" : ObjectId("61f691e916609040d7521656"), "text" : "Learn about containers", "done" : false }
+> db.todos.insertOne()[3G[Jdb.todos.insertOne[1;34m([0m)[22G[3G[Jdb.todos.insertOne([1;34m{[0m)[23G[3G[Jdb.todos.insertOne[1;34m([0m{})[24G[3G[Jdb.todos.insertOne([1;34m{[0m})[23G[3G[Jdb.todos.insertOne([1;34m{[0m })[24G[3G[Jdb.todos.insertOne([1;34m{[0m t})[25G[3G[Jdb.todos.insertOne([1;34m{[0m te})[26G[3G[Jdb.todos.insertOne([1;34m{[0m tex})[27G[3G[Jdb.todos.insertOne([1;34m{[0m text})[28G[3G[Jdb.todos.insertOne([1;34m{[0m text:})[29G[3G[Jdb.todos.insertOne([1;34m{[0m text: })[30G[3G[Jdb.todos.insertOne([1;34m{[0m text: "})[31G[3G[Jdb.todos.insertOne([1;34m{[0m text: ""})[32G[3G[Jdb.todos.insertOne([1;34m{[0m text: "})[31G[3G[Jdb.todos.insertOne([1;34m{[0m text: })[30G[3G[Jdb.todos.insertOne([1;34m{[0m text:})[29G[3G[Jdb.todos.insertOne([1;34m{[0m text})[28G[3G[Jdb.todos.insertOne([1;34m{[0m tex})[27G[3G[Jdb.todos.insertOne([1;34m{[0m te})[26G[3G[Jdb.todos.insertOne([1;34m{[0m t})[25G[3G[Jdb.todos.insertOne([1;34m{[0m })[24G[3G[Jdb.todos.insertOne([1;34m{[0m "})[25G[3G[Jdb.todos.insertOne([1;34m{[0m ""})[26G[3G[Jdb.todos.insertOne({ ""})[25G[3G[Jdb.todos.insertOne({ "t"})[26G[3G[Jdb.todos.insertOne({ "te"})[27G[3G[Jdb.todos.insertOne({ "tex"})[28G[3G[Jdb.todos.insertOne({ "text"})[29G[3G[Jdb.todos.insertOne([1;34m{[0m "text"})[30G[3G[Jdb.todos.insertOne([1;34m{[0m "text":})[31G[3G[Jdb.todos.insertOne([1;34m{[0m "text": })[32G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "})[33G[3G[Jdb.todos.insertOne([1;34m{[0m "text": ""})[34G[3G[Jdb.todos.insertOne({ "text": ""})[33G[3G[Jdb.todos.insertOne({ "text": "I"})[34G[3G[Jdb.todos.insertOne({ "text": "In"})[35G[3G[Jdb.todos.insertOne({ "text": "Inc"})[36G[3G[Jdb.todos.insertOne({ "text": "Incr"})[37G[3G[Jdb.todos.insertOne({ "text": "Incre"})[38G[3G[Jdb.todos.insertOne({ "text": "Increa"})[39G[3G[Jdb.todos.insertOne({ "text": "Increas"})[40G[3G[Jdb.todos.insertOne({ "text": "Increase"})[41G[3G[Jdb.todos.insertOne({ "text": "Increase "})[42G[3G[Jdb.todos.insertOne({ "text": "Increase t"})[43G[3G[Jdb.todos.insertOne({ "text": "Increase th"})[44G[3G[Jdb.todos.insertOne({ "text": "Increase the"})[45G[3G[Jdb.todos.insertOne({ "text": "Increase the "})[46G[3G[Jdb.todos.insertOne({ "text": "Increase the n"})[47G[3G[Jdb.todos.insertOne({ "text": "Increase the nu"})[48G[3G[Jdb.todos.insertOne({ "text": "Increase the num"})[49G[3G[Jdb.todos.insertOne({ "text": "Increase the numb"})[50G[3G[Jdb.todos.insertOne({ "text": "Increase the numbe"})[51G[3G[Jdb.todos.insertOne({ "text": "Increase the number"})[52G[3G[Jdb.todos.insertOne({ "text": "Increase the number "})[53G[3G[Jdb.todos.insertOne({ "text": "Increase the number o"})[54G[3G[Jdb.todos.insertOne({ "text": "Increase the number of"})[55G[3G[Jdb.todos.insertOne({ "text": "Increase the number of "})[56G[3G[Jdb.todos.insertOne({ "text": "Increase the number of t"})[57G[3G[Jdb.todos.insertOne({ "text": "Increase the number of to"})[58G[3G[Jdb.todos.insertOne({ "text": "Increase the number of too"})[59G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tool"})[60G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools"})[61G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools "})[62G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools i"})[63G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in"})[64G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in "})[65G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in m"})[66G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my"})[67G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my "})[68G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my t"})[69G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my to"})[70G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my too"})[71G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my tool"})[72G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolb"})[73G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbe"})[74G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbel"})[75G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbelt"})[76G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbelt!"})[77G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!"})[78G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!",})[79G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!", })[80G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!", "})[81G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!", ""})[82G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbelt!", ""})[81G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbelt!", "d"})[82G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbelt!", "do"})[83G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbelt!", "don"})[84G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbelt!", "done"})[85G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbelt!", "done"})[85G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbelt!", "doneC"})[86G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbelt!", "done"})[85G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!", "done"})[86G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!", "done":})[87G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!", "done": })[88G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!", "done": f})[89G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!", "done": fa})[90G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!", "done": fal})[91G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!", "done": fals})[92G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!", "done": false})[93G[3G[Jdb.todos.insertOne([1;34m{[0m "text": "Increase the number of tools in my toolbelt!", "done": false })[94G[3G[Jdb.todos.insertOne[1;34m([0m{ "text": "Increase the number of tools in my toolbelt!", "done": false })[95G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbelt!", "done": false })[96G[3G[Jdb.todos.insertOne({ "text": "Increase the number of tools in my toolbelt!", "done": false })[96G
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("61f6a89728ef699310924daa")
+}
+> db.todos.find()[3G[Jdb.todos.find[1;34m([0m)[17G[3G[Jdb.todos.find([1;34m{[0m)[18G[3G[Jdb.todos.find[1;34m([0m{})[19G[3G[Jdb.todos.find({})[20G[3G[Jdb.todos.find({})[20G
+{ "_id" : ObjectId("61f691e916609040d7521655"), "text" : "New note", "done" : false }
+{ "_id" : ObjectId("61f691e916609040d7521656"), "text" : "Learn about containers", "done" : false }
+{ "_id" : ObjectId("61f6a89728ef699310924daa"), "text" : "Increase the number of tools in my toolbelt!", "done" : false }
+> exit[3G[Jexit[7G
+bye
+]0;root@3709d08e63b5: /root@3709d08e63b5:/# exit
+exit
+]0;roni@roni: ~/Documents/full-stack-open-containers[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers[00m$ npm[K[K[Kls
+[0m[01;34mscript-answers[0m  [01;34mstuff[0m  [01;34mtodo-app[0m  typescript
+]0;roni@roni: ~/Documents/full-stack-open-containers[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers[00m$ cd todo-app/
+]0;roni@roni: ~/Documents/full-stack-open-containers/todo-app[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers/todo-app[00m$ ls
+[0m[01;34mtodo-backend[0m  [01;34mtodo-frontend[0m
+]0;roni@roni: ~/Documents/full-stack-open-containers/todo-app[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers/todo-app[00m$ cd todo--[Kbackend/
+]0;roni@roni: ~/Documents/full-stack-open-containers/todo-app/todo-backend[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers/todo-app/todo-backend[00m$ npm start
+
+> todo-express-backend@0.0.0 start
+> node ./bin/www
+
+[0mGET / [32m200 [0m1.624 ms - 12[0m
+/home/roni/Documents/full-stack-open-containers/todo-app/todo-backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:197
+          const err = new MongooseError(message);
+                      ^
+
+MongooseError: Operation `todos.find()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (/home/roni/Documents/full-stack-open-containers/todo-app/todo-backend/node_modules/[4mmongoose[24m/lib/drivers/node-mongodb-native/collection.js:197:23)
+[90m    at listOnTimeout (node:internal/timers:557:17)[39m
+[90m    at processTimers (node:internal/timers:500:7)[39m
+]0;roni@roni: ~/Documents/full-stack-open-containers/todo-app/todo-backend[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers/todo-app/todo-backend[00m$ code .
+]0;roni@roni: ~/Documents/full-stack-open-containers/todo-app/todo-backend[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers/todo-app/todo-backend[00m$  MONGO_URL=mongodb://localhost:3456/the_database npm run dev
+
+> todo-express-backend@0.0.0 dev
+> nodemon ./bin/www
+
+[33m[nodemon] 2.0.12[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `node ./bin/www`[39m
+/home/roni/Documents/full-stack-open-containers/todo-app/todo-backend/node_modules/mongodb/lib/cmap/connection.js:272
+          callback(new MongoError(document));
+                   ^
+
+MongoError: command find requires authentication
+    at MessageStream.messageHandler (/home/roni/Documents/full-stack-open-containers/todo-app/todo-backend/node_modules/[4mmongodb[24m/lib/cmap/connection.js:272:20)
+[90m    at MessageStream.emit (node:events:390:28)[39m
+    at processIncomingData (/home/roni/Documents/full-stack-open-containers/todo-app/todo-backend/node_modules/[4mmongodb[24m/lib/cmap/message_stream.js:144:12)
+    at MessageStream._write (/home/roni/Documents/full-stack-open-containers/todo-app/todo-backend/node_modules/[4mmongodb[24m/lib/cmap/message_stream.js:42:5)
+[90m    at writeOrBuffer (node:internal/streams/writable:389:12)[39m
+[90m    at _write (node:internal/streams/writable:330:10)[39m
+[90m    at MessageStream.Writable.write (node:internal/streams/writable:334:10)[39m
+[90m    at Socket.ondata (node:internal/streams/readable:754:22)[39m
+[90m    at Socket.emit (node:events:390:28)[39m
+[90m    at addChunk (node:internal/streams/readable:315:12)[39m
+[90m    at readableAddChunk (node:internal/streams/readable:289:9)[39m
+[90m    at Socket.Readable.push (node:internal/streams/readable:228:10)[39m
+[90m    at TCP.onStreamRead (node:internal/stream_base_commons:199:23)[39m {
+  ok: [33m0[39m,
+  code: [33m13[39m,
+  codeName: [32m'Unauthorized'[39m
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+^C
+]0;roni@roni: ~/Documents/full-stack-open-containers/todo-app/todo-backend[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers/todo-app/todo-backend[00m$ ^C
+]0;roni@roni: ~/Documents/full-stack-open-containers/todo-app/todo-backend[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers/todo-app/todo-backend[00m$ code .[K[K[K[K[K[KMONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database npm run dev
+
+> todo-express-backend@0.0.0 dev
+> nodemon ./bin/www
+
+[33m[nodemon] 2.0.12[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `node ./bin/www`[39m
+[0mGET /todos [32m200 [0m8.074 ms - 249[0m
+^C
+]0;roni@roni: ~/Documents/full-stack-open-containers/todo-app/todo-backend[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers/todo-app/todo-backend[00m$ ^C
+]0;roni@roni: ~/Documents/full-stack-open-containers/todo-app/todo-backend[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers/todo-app/todo-backend[00m$ exit
+exit
+
+Script done on 2022-01-30 17:05:54+02:00 [COMMAND_EXIT_CODE="130"]
