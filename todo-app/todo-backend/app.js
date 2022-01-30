@@ -1,14 +1,22 @@
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
-const { setAsync } = require('./redis')
+const { getAsync, setAsync } = require('./redis')
 
 const indexRouter = require('./routes/index')
 const todosRouter = require('./routes/todos')
 const statisticsRouter = require('./routes/statistics')
 
 const app = express()
-setAsync('added_todos', 0)
+
+const redisSetup = async () => {
+  const addedTodos = await getAsync('added_todos')
+  if (!addedTodos) {
+    await setAsync('added_todos', 0)
+  }
+}
+
+redisSetup()
 
 app.use(cors())
 
