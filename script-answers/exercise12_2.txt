@@ -1,32 +1,29 @@
-Script started on 2021-10-21 11:39:32+03:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="120" LINES="30"]
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
-]0;roni@DESKTOP-CCMCPC1: ~[01;32mroni@DESKTOP-CCMCPC1[00m:[01;34m~[00m$ docker run -it ubuns[Ktu bash
+Script started on 2022-01-30 14:21:05+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="144" LINES="24"]
+]0;roni@roni: ~/Documents/full-stack-open-containers/script-answers[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers/script-answers[00m$ docker run -it ubuntu bash
+docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.
+See 'docker run --help'.
+]0;roni@roni: ~/Documents/full-stack-open-containers/script-answers[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers/script-answers[00m$ docker run -it ubuntu bash[1@s[1@u[1@i[C[1@d[1@o[1P[1P[1P[C[1@d[1@o[1@ 
+[sudo] password for roni: *************             
 Unable to find image 'ubuntu:latest' locally
 latest: Pulling from library/ubuntu
 
-[1A[2K7b1a6ab2e44d: Pulling fs layer [1B[1A[2K7b1a6ab2e44d: Downloading [>                                                  ]  293.2kB/28.57MB[1B[1A[2K7b1a6ab2e44d: Downloading [=======>                                           ]  4.115MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Downloading [==============>                                    ]  8.239MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Downloading [======================>                            ]  12.68MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Downloading [=============================>                     ]  17.11MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Downloading [======================================>            ]  21.81MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Downloading [=============================================>     ]  26.21MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Verifying Checksum [1B[1A[2K7b1a6ab2e44d: Download complete [1B[1A[2K7b1a6ab2e44d: Extracting [>                                                  ]  294.9kB/28.57MB[1B[1A[2K7b1a6ab2e44d: Extracting [========>                                          ]  5.014MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Extracting [================>                                  ]  9.437MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Extracting [========================>                          ]  13.86MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Extracting [=================================>                 ]  19.17MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Extracting [=========================================>         ]  23.89MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Extracting [==============================================>    ]  26.84MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Extracting [==================================================>]  28.57MB/28.57MB[1B[1A[2K7b1a6ab2e44d: Pull complete [1BDigest: sha256:626ffe58f6e7566e00254b638eb7e0f3b11d4da9675088f4781a50ae288f3322
+[1A[2Kea362f368469: Pulling fs layer [1B[1A[2Kea362f368469: Downloading [>                                                  ]  298.2kB/28.57MB[1B[1A[2Kea362f368469: Downloading [=============>                                     ]  7.617MB/28.57MB[1B[1A[2Kea362f368469: Downloading [=============================>                     ]   16.7MB/28.57MB[1B[1A[2Kea362f368469: Downloading [========================================>          ]  23.17MB/28.57MB[1B[1A[2Kea362f368469: Downloading [=============================================>     ]  25.82MB/28.57MB[1B[1A[2Kea362f368469: Downloading [=================================================> ]  28.46MB/28.57MB[1B[1A[2Kea362f368469: Verifying Checksum [1B[1A[2Kea362f368469: Download complete [1B[1A[2Kea362f368469: Extracting [>                                                  ]  294.9kB/28.57MB[1B[1A[2Kea362f368469: Extracting [==============>                                    ]  8.552MB/28.57MB[1B[1A[2Kea362f368469: Extracting [============================>                      ]  16.22MB/28.57MB[1B[1A[2Kea362f368469: Extracting [==========================================>        ]  24.48MB/28.57MB[1B[1A[2Kea362f368469: Extracting [==================================================>]  28.57MB/28.57MB[1B[1A[2Kea362f368469: Pull complete [1BDigest: sha256:b5a61709a9a44284d88fb12e5c48db0409cfad5b69d4ff8224077c57302df9cf
 Status: Downloaded newer image for ubuntu:latest
-]0;root@d7f49245e645: /root@d7f49245e645:/# [K]0;root@d7f49245e645: /root@d7f49245e645:/# ls -a
-[0m[01;34m.[0m   [01;32m.dockerenv[0m  [01;34mboot[0m  [01;34metc[0m   [01;36mlib[0m    [01;36mlib64[0m   [01;34mmedia[0m  [01;34mopt[0m   [01;34mroot[0m  [01;36msbin[0m  [01;34msys[0m  [01;34musr[0m
-[01;34m..[0m  [01;36mbin[0m         [01;34mdev[0m   [01;34mhome[0m  [01;36mlib32[0m  [01;36mlibx32[0m  [01;34mmnt[0m    [01;34mproc[0m  [01;34mrun[0m   [01;34msrv[0m   [30;42mtmp[0m  [01;34mvar[0m
-]0;root@d7f49245e645: /root@d7f49245e645:/# mkdir /ur sr/scr/app
-mkdir: cannot create directory '/usr/scr/app': No such file or directory
-]0;root@d7f49245e645: /root@d7f49245e645:/# csd  d / usr/scr   
+]0;root@ed0b4109ce2b: /root@ed0b4109ce2b:/# [K]0;root@ed0b4109ce2b: /root@ed0b4109ce2b:/# ls
+[0m[01;36mbin[0m  [01;34mboot[0m  [01;34mdev[0m  [01;34metc[0m  [01;34mhome[0m  [01;36mlib[0m  [01;36mlib32[0m  [01;36mlib64[0m  [01;36mlibx32[0m  [01;34mmedia[0m  [01;34mmnt[0m  [01;34mopt[0m  [01;34mproc[0m  [01;34mroot[0m  [01;34mrun[0m  [01;36msbin[0m  [01;34msrv[0m  [01;34msys[0m  [30;42mtmp[0m  [01;34musr[0m  [01;34mvar[0m
+]0;root@ed0b4109ce2b: /root@ed0b4109ce2b:/# cd usr/
 bin/     games/   include/ lib/     lib32/   lib64/   libx32/  local/   sbin/    share/   src/     
-]0;root@d7f49245e645: /root@d7f49245e645:/# cd usr/src/
-]0;root@d7f49245e645: /usr/srcroot@d7f49245e645:/usr/src# ls a-  -a
-[0m[01;34m.[0m  [01;34m..[0m
-]0;root@d7f49245e645: /usr/srcroot@d7f49245e645:/usr/src# mkdir app
-]0;root@d7f49245e645: /usr/srcroot@d7f49245e645:/usr/src# ls -a
-[0m[01;34m.[0m  [01;34m..[0m  [01;34mapp[0m
-]0;root@d7f49245e645: /usr/srcroot@d7f49245e645:/usr/src# cd /a  app/
-]0;root@d7f49245e645: /usr/src/approot@d7f49245e645:/usr/src/app# ls
-]0;root@d7f49245e645: /usr/src/approot@d7f49245e645:/usr/src/app# touch index-.  .js
-]0;root@d7f49245e645: /usr/src/approot@d7f49245e645:/usr/src/app# qxit    exit
+]0;root@ed0b4109ce2b: /root@ed0b4109ce2b:/# cd usr/src/
+]0;root@ed0b4109ce2b: /usr/srcroot@ed0b4109ce2b:/usr/src# ls
+]0;root@ed0b4109ce2b: /usr/srcroot@ed0b4109ce2b:/usr/src# mkdir app/
+]0;root@ed0b4109ce2b: /usr/srcroot@ed0b4109ce2b:/usr/src# cd app/
+]0;root@ed0b4109ce2b: /usr/src/approot@ed0b4109ce2b:/usr/src/app# ls
+]0;root@ed0b4109ce2b: /usr/src/approot@ed0b4109ce2b:/usr/src/app# nano index-.            touch index.js
+]0;root@ed0b4109ce2b: /usr/src/approot@ed0b4109ce2b:/usr/src/app# ls
+index.js
+]0;root@ed0b4109ce2b: /usr/src/approot@ed0b4109ce2b:/usr/src/app# exit
 exit
-]0;roni@DESKTOP-CCMCPC1: ~[01;32mroni@DESKTOP-CCMCPC1[00m:[01;34m~[00m$ eix[K[Kxit
+]0;roni@roni: ~/Documents/full-stack-open-containers/script-answers[01;32mroni@roni[00m:[01;34m~/Documents/full-stack-open-containers/script-answers[00m$ exit
 exit
 
-Script done on 2021-10-21 11:41:41+03:00 [COMMAND_EXIT_CODE="0"]
+Script done on 2022-01-30 14:22:20+02:00 [COMMAND_EXIT_CODE="0"]
