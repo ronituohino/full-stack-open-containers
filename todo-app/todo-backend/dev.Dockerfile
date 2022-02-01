@@ -1,12 +1,10 @@
 FROM node:16
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/todo-backend
 
 COPY --chown=node:node . .
 
 RUN npm install
-
-ENV PORT=3000
 
 USER node
 
