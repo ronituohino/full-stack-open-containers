@@ -13,10 +13,6 @@ services:
     build:
       context: ./todo-frontend # The context will pick this directory as the "build context"
       dockerfile: Dockerfile # This will simply tell which dockerfile to read
-    volumes:
-     - ./todo-frontend:/usr/src/todo-frontend # The path can be relative, so ./ is enough to say "the same location as the docker-compose.yml"
-    environment:
-     - REACT_APP_BACKEND_URL=api #reverse-proxy:8080/api?
     ports:
      - 3000:3000
     container_name: todo-frontend # This will name the container todo-frontend
@@ -38,9 +34,9 @@ services:
     image: redis
     ports:
      - 6379:6379  
-    command: ['redis-server', '--appendonly', 'yes']
     volumes:
      - ./todo-backend/redis_data:/data
+    command: ['redis-server', '--appendonly', 'yes']
     container_name: "redis-container"
     
   backend:
@@ -48,8 +44,6 @@ services:
     build:
       context: ./todo-backend
       dockerfile: Dockerfile
-    volumes:
-     - ./todo-backend:/usr/src/todo-backend
     ports:
      - 3001:3001
     container_name: todo-backend
