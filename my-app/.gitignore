@@ -78,3 +78,4 @@ typings/
 backend/mongo_data
 backend/node_modules
 frontend/node_modules
+frontend/build
